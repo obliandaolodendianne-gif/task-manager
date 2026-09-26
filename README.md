@@ -2,6 +2,11 @@
 
 A simple Personal Task Manager built with Laravel.
 
+# Submitted by:
+- Dianne O. Oloden
+- WST21-PM-2026-SF
+- BSIT-2 SEC 7
+
 ## Features
 
 - Add new tasks
