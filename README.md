@@ -19,6 +19,20 @@ A simple Personal Task Manager built with Laravel.
 - Confirmation before deleting a task
 - Simple and responsive user interface
 
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Add Task
+![Add Task](screenshots/Addtask.png)
+
+### Edit Task
+![Edit Task](screenshots/Edit.png)
+
+### Final Result
+![Final Result](screenshots/Final.png)
+
 ## Technologies Used
 
 - Laravel
