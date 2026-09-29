@@ -22,9 +22,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'task_name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'status' => 'required|in:Pending,Completed',
+            'task_name' => 'required|max:255',
+            'description' => 'nullable',
+            'status' => 'required',
             'due_date' => 'nullable|date',
         ]);
 
@@ -40,30 +40,24 @@ class TaskController extends Controller
             ->with('success', 'Task added successfully!');
     }
 
-    public function show(string $id)
+    public function show(Task $task)
     {
-        $task = Task::findOrFail($id);
-
-        return view('tasks.index', compact('task'));
+        return view('tasks.show', compact('task'));
     }
 
-    public function edit(string $id)
+    public function edit(Task $task)
     {
-        $task = Task::findOrFail($id);
-
         return view('tasks.edit', compact('task'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Task $task)
     {
         $request->validate([
-            'task_name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'status' => 'required|in:Pending,Completed',
+            'task_name' => 'required|max:255',
+            'description' => 'nullable',
+            'status' => 'required',
             'due_date' => 'nullable|date',
         ]);
-
-        $task = Task::findOrFail($id);
 
         $task->update([
             'task_name' => $request->task_name,
@@ -77,10 +71,8 @@ class TaskController extends Controller
             ->with('success', 'Task updated successfully!');
     }
 
-    public function destroy(string $id)
+    public function destroy(Task $task)
     {
-        $task = Task::findOrFail($id);
-
         $task->delete();
 
         return redirect()
